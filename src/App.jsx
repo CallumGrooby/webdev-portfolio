@@ -1,15 +1,25 @@
-import { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faLinkedin,
+  faGithub,
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faReact,
+} from "@fortawesome/free-brands-svg-icons";
 import "./styles/style.scss";
-
-library.add(faLinkedin, faGithub);
-
 import { Navigationbar } from "./components/Navigationbar";
+import { Home } from "./components/Home";
+import { TechStack } from "./components/TechStack";
+
+library.add(faLinkedin, faGithub, faHtml5, faCss3Alt, faJs, faReact);
+
 function App() {
   return (
     <>
       <Navigationbar />
+      <Home />
+      <TechStack />
     </>
   );
 }
