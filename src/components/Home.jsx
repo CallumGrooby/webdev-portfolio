@@ -1,35 +1,17 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import image from "/placeholder.jpg";
-
 export const Home = () => {
   return (
     <section className="home-section">
-      <section className="home-info">
-        <h1>Front-End Developer</h1>
-        <p>
-          Hi, I’m Callum Grooby, A passionate Front-end developer, My expertise
-          lies in crafting captivating online experiences that both engage and
-          inspire. I specialize in curating content that resonates and designing
-          websites that leave a lasting impression.
-        </p>
+      <section className="home-info body-section">
+        <h2>{"Hello I'm"}</h2>
+        <h1 className="name">
+          Callum <span id="sirname">Grooby</span>
+        </h1>
 
-        <div className="stack-icons">
-          <FontAwesomeIcon
-            className="icon"
-            style={{ color: "#0a66c2" }}
-            icon="fa-brands fa-linkedin"
-          />
-          <FontAwesomeIcon
-            className="icon"
-            style={{ color: "#24292e" }}
-            icon="fa-brands fa-github"
-          />
-        </div>
-      </section>
+        <h3>A Passionate Web Developer</h3>
 
-      <section className="home-image">
-        <div className="image-holder">
-          <img src={image} />
+        <div className="button-container">
+          <button className="main call-to-action">My Projects</button>
+          <button className="secondary call-to-action">About Me</button>
         </div>
       </section>
     </section>

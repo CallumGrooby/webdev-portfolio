@@ -10,7 +10,7 @@ export const TechStack = () => {
   ];
 
   return (
-    <section className="tech-stack">
+    <section className="body-section tech-stack">
       <h1>Tech Stack: </h1>
       <div className="stack-icons">
         {techStack.map((stackItem, index) => {

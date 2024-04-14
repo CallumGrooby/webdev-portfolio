@@ -11,6 +11,9 @@ import "./styles/style.scss";
 import { Navigationbar } from "./components/Navigationbar";
 import { Home } from "./components/Home";
 import { TechStack } from "./components/TechStack";
+import { AboutMe } from "./components/AboutMe";
+import { ProjectsSection } from "./components/Projects/ProjectsSection";
+import { ContactUs } from "./components/ContactUs";
 
 library.add(faLinkedin, faGithub, faHtml5, faCss3Alt, faJs, faReact);
 
@@ -20,6 +23,9 @@ function App() {
       <Navigationbar />
       <Home />
       <TechStack />
+      <AboutMe />
+      <ProjectsSection />
+      <ContactUs />
     </>
   );
 }
