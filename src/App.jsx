@@ -1,31 +1,45 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faLinkedin,
-  faGithub,
-  faHtml5,
-  faCss3Alt,
-  faJs,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import "./styles/style.scss";
-import { Navigationbar } from "./components/Navigationbar";
-import { Home } from "./components/Home";
-import { TechStack } from "./components/TechStack";
-import { AboutMe } from "./components/AboutMe";
-import { ProjectsSection } from "./components/Projects/ProjectsSection";
-import { ContactUs } from "./components/ContactUs";
+import { useRef } from "react";
+import { SocialLinksSection } from "./components/SocialLinksSection";
+import { AboutMeSection } from "./sections/AboutMeSection";
+import { HeroSection } from "./sections/HeroSection";
+import { PortfolioSection } from "./sections/PortfolioSection";
+import { SkillsSection } from "./sections/SkillsSection";
+import { motion } from "framer-motion";
+import "./index.css";
+import { NavigationBar } from "./sections/NavigationBar";
 
-library.add(faLinkedin, faGithub, faHtml5, faCss3Alt, faJs, faReact);
+const sections = [
+  { id: "hero-section", component: HeroSection, name: "Hero" },
+  { id: "skills-section", component: SkillsSection, name: "Skills" },
+  { id: "about-me-section", component: AboutMeSection, name: "About Me" },
+  { id: "portfolio-section", component: PortfolioSection, name: "Portfolio" },
+];
 
 function App() {
+  const refs = sections.reduce((acc, section) => {
+    acc[section.id] = useRef(null);
+    return acc;
+  }, {});
+
+  const scrollTo = (ref) => {
+    console.log(ref);
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <Navigationbar />
-      <Home />
-      <TechStack />
-      <AboutMe />
-      <ProjectsSection />
-      <ContactUs />
+      <NavigationBar scrollTo={scrollTo} refs={refs} sections={sections} />
+      {sections.map(({ id, component: Component }) => (
+        <section ref={refs[id]} id={id} key={id} className="section">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Component />
+          </motion.div>
+        </section>
+      ))}
     </>
   );
 }
