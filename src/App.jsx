@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { SocialLinksSection } from "./components/SocialLinksSection";
 import { AboutMeSection } from "./sections/AboutMeSection";
 import { HeroSection } from "./sections/HeroSection";
@@ -6,7 +6,7 @@ import { PortfolioSection } from "./sections/PortfolioSection";
 import { SkillsSection } from "./sections/SkillsSection";
 import { motion } from "framer-motion";
 import "./index.css";
-import { NavigationBar } from "./sections/NavigationBar";
+import { NavBar } from "./sections/NavBar";
 
 const sections = [
   { id: "hero-section", component: HeroSection, name: "Hero" },
@@ -16,27 +16,41 @@ const sections = [
 ];
 
 function App() {
-  const refs = sections.reduce((acc, section) => {
-    acc[section.id] = useRef(null);
-    return acc;
-  }, {});
+  // const refs = sections.reduce((acc, section) => {
+  //   acc[section.id] = useRef(null);
+  //   return acc;
+  // }, {});
+
+  const elementsRef = useRef(sections.map(() => createRef()));
+  const [sectionWithRefs, setSectionsWithRefs] = useState(null);
+
+  useEffect(() => {
+    const mergedArray = [];
+
+    for (let i = 0; i < sections.length; i++) {
+      const newObject = { ...sections[i], ref: elementsRef.current[i] };
+      mergedArray.push(newObject);
+    }
+
+    setSectionsWithRefs(mergedArray);
+  }, [elementsRef]);
 
   const scrollTo = (ref) => {
-    console.log(ref);
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <NavigationBar scrollTo={scrollTo} refs={refs} sections={sections} />
-      {sections.map(({ id, component: Component }) => (
-        <section ref={refs[id]} id={id} key={id} className="section">
+      <NavBar scrollTo={scrollTo} sections={sectionWithRefs} />
+
+      {sections.map((item, index) => (
+        <section ref={elementsRef.current[index]} key={index}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <Component />
+            <item.component></item.component>
           </motion.div>
         </section>
       ))}

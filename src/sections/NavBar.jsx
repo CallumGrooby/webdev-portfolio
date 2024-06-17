@@ -1,31 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Turn as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
 
-import { Turn as Hamburger } from "hamburger-react";
+export const NavBar = ({ scrollTo, sections }) => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
-export const NavigationBar = ({ scrollTo, sections }) => {
-  return (
-    <>{sections && <DesktopNav scrollTo={scrollTo} sections={sections} />}</>
-  );
-};
-
-const DesktopNav = ({ scrollTo, sections }) => {
   return (
     <section className="sticky top-0 z-50 bg-blue-900">
       <nav className="flex container mx-auto flex-row p-4">
         <Logo />
 
-        <div className="flex flex-row gap-8 flex-grow justify-end items-center">
-          {sections.map((section, index) => (
-            <motion.a
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => scrollTo(section.ref)}
-              className="text-xl text-white hover:text-orange-600 cursor-pointer"
-            >
-              {section.name}
-            </motion.a>
-          ))}
+        <div className="hidden lg:flex flex-row gap-8 flex-grow justify-end items-center">
+          <NavLinks scrollTo={scrollTo} sections={sections} />
 
           {/* <Button
             text={"View Portfolio"}
@@ -33,15 +19,42 @@ const DesktopNav = ({ scrollTo, sections }) => {
           /> */}
         </div>
 
-        <div className="lg:hidden flex flex-grow justify-end items-center">
-          {/* <Hamburger
+        <div className="lg:hidden flex flex-grow justify-end items-center z-50">
+          <Hamburger
             toggled={isNavbarOpen}
-            toggle={setNavbarOpen}
+            toggle={setIsNavbarOpen}
             color="#fff"
-          /> */}
+          />{" "}
+          {/* Pass state and toggle function */}
         </div>
       </nav>
+
+      {/* Conditionally render MobileNavigationBar based on isNavbarOpen state */}
+      {isNavbarOpen && (
+        <MobileNavigationBar scrollTo={scrollTo} sections={sections} />
+      )}
     </section>
+  );
+};
+
+const NavLinks = ({ scrollTo, sections }) => {
+  if (!sections) {
+    return <div className="text-red-500">Sections data is not available.</div>;
+  }
+
+  return (
+    <>
+      {sections.map((section, index) => (
+        <motion.a
+          key={index}
+          whileHover={{ scale: 1.05 }}
+          onClick={() => scrollTo(section.ref)}
+          className="text-xl text-white hover:text-orange-600 cursor-pointer"
+        >
+          {section.name}
+        </motion.a>
+      ))}
+    </>
   );
 };
 
@@ -74,30 +87,20 @@ export const MobileNavigationBar = ({ scrollTo, refs, sections }) => {
     //   <Hamburger toggled={isNavbarOpen} toggle={setNavbarOpen} color="#fff" />
     <nav
       className="
-      z-50
+      lg:hidden flex
+      z-40
       bg-[rgba(1,1,1,0.7)] bottom-auto h-lvh left-0  fixed right-0 text-center top-0
     "
     >
       <div
         className="
           opacity-100
-          absolute top-0 left-0 right-[-24px] bg-blue-900 bottom-0 text-center
+          absolute top-0 left-0 right-[-22px] bg-blue-900 bottom-0 text-center
           skew-x-[-14deg] translate-x-0 origin-top-left
         "
       >
         <div className="inline-flex items-start flex-col h-full justify-center translate-x-[-18%]">
-          {sections.map(({ id, name }) => (
-            <motion.a
-              key={id}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => scrollTo(refs[id])}
-              className="text-xl text-white hover:text-orange-600 cursor-pointer
-                block m-[0.5rem] text-right skew-x-[16deg]
-                "
-            >
-              {name}
-            </motion.a>
-          ))}
+          <NavLinks scrollTo={scrollTo} sections={sections} />
         </div>
       </div>
     </nav>
