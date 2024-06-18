@@ -7,7 +7,12 @@ import { motion } from "framer-motion";
 export const PortfolioSection = () => {
   return (
     <section className="max-w-[1200px] mx-auto">
-      <div className="grid grid-cols-2 place-items-center  gap-4">
+      <header className="w-full my-8 text-purple-800 flex flex-col gap-4 text-center">
+        <h1 className="font-Exo text-4xl">My Projects</h1>
+        <p className="text-xl text-purple-700">Some things I've built so far</p>
+      </header>
+
+      <div className="grid p-8 grid-cols-1 md:grid-cols-2  place-items-center  gap-4">
         {Projects.map((projectData, index) => (
           <PortolioPiece key={index} data={projectData} />
         ))}
@@ -41,20 +46,20 @@ const PortolioPiece = ({ data }) => {
         className="absolute inset-0 bg-black transition duration-300 ease-in-out
         flex flex-col items-start justify-start rounded-2xl p-4"
       >
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0 }}
           animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-          className="font-Exo text-xl text-blue-500"
+          className="font-Exo text-xl text--500"
         >
           {data.category}
-        </motion.h2>
+        </motion.h2> */}
 
         <motion.h1
           initial={{ opacity: 0 }}
           animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.4, duration: 0.5, ease: "easeInOut" }}
-          className="font-Exo text-4xl text-blue-800"
+          className="font-Exo text-4xl text-purple-800"
         >
           {data.title}
         </motion.h1>
@@ -63,7 +68,7 @@ const PortolioPiece = ({ data }) => {
           initial={{ opacity: 0 }}
           animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
-          className="font-Nunito text-lg text-white flex-grow"
+          className="font-Nunito text-lg text-purple-200 flex-grow"
         >
           {data.description}
         </motion.p>
@@ -93,8 +98,8 @@ export const Button = ({ text, to, isBlue }) => {
             transition-all duration-300 ease-in-out
             ${
               isBlue
-                ? "hover:bg-blue-800 bg-blue-900"
-                : "hover:bg-orange-500 bg-orange-600"
+                ? "hover:bg-purple-800 bg-purple-900"
+                : "hover:bg-purple-400 bg-purple-300 text-black"
             }
             cursor-pointer
           `}

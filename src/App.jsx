@@ -1,28 +1,31 @@
 import { createRef, useEffect, useRef, useState } from "react";
-import { SocialLinksSection } from "./components/SocialLinksSection";
+import {
+  SocialLinksSection,
+  StickyLinksSection,
+} from "./components/SocialLinksSection";
 import { AboutMeSection } from "./sections/AboutMeSection";
 import { HeroSection } from "./sections/HeroSection";
 import { PortfolioSection } from "./sections/PortfolioSection";
 import { SkillsSection } from "./sections/SkillsSection";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import "./index.css";
 import { NavBar } from "./sections/NavBar";
+import { ContactUs } from "./sections/ContactUs";
 
 const sections = [
   { id: "hero-section", component: HeroSection, name: "Hero" },
-  { id: "skills-section", component: SkillsSection, name: "Skills" },
   { id: "about-me-section", component: AboutMeSection, name: "About Me" },
+  { id: "skills-section", component: SkillsSection, name: "Skills" },
   { id: "portfolio-section", component: PortfolioSection, name: "Portfolio" },
+  { id: "contact-us-section", component: ContactUs, name: "Contact Us" },
 ];
 
 function App() {
-  // const refs = sections.reduce((acc, section) => {
-  //   acc[section.id] = useRef(null);
-  //   return acc;
-  // }, {});
-
   const elementsRef = useRef(sections.map(() => createRef()));
   const [sectionWithRefs, setSectionsWithRefs] = useState(null);
+  const isHeroSectionInView = useInView(elementsRef.current[0], {
+    once: false,
+  });
 
   useEffect(() => {
     const mergedArray = [];
@@ -42,7 +45,7 @@ function App() {
   return (
     <>
       <NavBar scrollTo={scrollTo} sections={sectionWithRefs} />
-
+      {!isHeroSectionInView && <StickyLinksSection />}
       {sections.map((item, index) => (
         <section ref={elementsRef.current[index]} key={index}>
           <motion.div
