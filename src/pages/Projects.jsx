@@ -6,39 +6,16 @@ import mobileTestImage from "../assets/MobileSiteImages/testmobile.png";
 import desktopTestImage from "../assets/MobileSiteImages/CubeNest.png";
 import { SmallProject } from "../components/ProjectSection/SmallProject";
 
+import ProjectData from "../data/ProjectData";
+
 const Projects = () => {
   const contactIcons = [
     { icon: "", name: "linkedin" },
     { icon: "", name: "github" },
     { icon: "", name: "email" },
   ];
-
-  const featuresProjects = [
-    {
-      projectName: "Cube Nest",
-      techonologies: ["React", "Tailwind CSS"],
-      projectParagraph: `A comprehensive website showcasing modular living pods with options to request quotes for various units.`,
-      mobileSiteImage: mobileTestImage,
-      desktopSiteImage: desktopTestImage,
-      href: "/",
-    },
-    {
-      projectName: "Reddit Scroller",
-      techonologies: ["React", "Tailwind CSS", "Reddits Json Endpoints"],
-      projectParagraph: `A redesigned website for a local plumbing and heating business, enhancing user experience and service accessibility.`,
-      mobileSiteImage: mobileTestImage,
-      desktopSiteImage: desktopTestImage,
-      href: "/",
-    },
-    {
-      projectName: "Endeavor",
-      techonologies: ["React", "Tailwind CSS"],
-      projectParagraph: `A comprehensive website showcasing modular living pods with options to request quotes for various units.`,
-      mobileSiteImage: mobileTestImage,
-      desktopSiteImage: desktopTestImage,
-      href: "/",
-    },
-  ];
+  const featuredProjects = ProjectData.filter((x) => x.isFeatured == true);
+  const nonFeaturedProjects = ProjectData.filter((x) => x.isFeatured != true);
 
   return (
     <section>
@@ -58,33 +35,35 @@ const Projects = () => {
 
       <IconedList icons={contactIcons} hasMaxWidth={true} />
 
-      <section className="container-sm mx-auto flex flex-col gap-8">
-        {featuresProjects.map((projectData, index) => (
+      <section className="container-sm mx-auto flex flex-col gap-8 mt-16">
+        {featuredProjects.map((projectData, index) => (
           <LargeProject
             key={index}
             projectName={projectData.projectName}
-            projectParagraph={projectData.projectParagraph}
-            techstack={projectData.techonologies}
+            projectParagraph={projectData.projectShortParagraph}
+            techstack={projectData.technologies}
             mobileImage={projectData.mobileSiteImage}
             desktopImage={projectData.desktopSiteImage}
-            href={projectData.href}
+            href={`/project/${projectData.id}`}
           />
         ))}
       </section>
 
-      <section className="container-sm mx-auto grid grid-cols-3 gap-4">
-        {featuresProjects.map((projectData, index) => (
+      <section className="container-sm mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 md:mt-16">
+        {nonFeaturedProjects.map((projectData, index) => (
           <SmallProject
             key={index}
             projectName={projectData.projectName}
-            projectParagraph={projectData.projectParagraph}
-            techstack={projectData.techonologies}
+            projectParagraph={projectData.projectShortParagraph}
+            techstack={projectData.technologies}
             mobileImage={projectData.mobileSiteImage}
             desktopImage={projectData.desktopSiteImage}
-            href={projectData.href}
+            href={`/project/${projectData.id}`}
           />
         ))}
       </section>
+
+      <h1 className="~md/lg:~text-base/4xl">Quick increase</h1>
     </section>
   );
 };

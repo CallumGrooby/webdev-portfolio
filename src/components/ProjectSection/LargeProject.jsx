@@ -4,6 +4,7 @@ import mobileTestImage from "../../assets/MobileSiteImages/testmobile.png";
 import desktopTestImage from "../../assets/MobileSiteImages/CubeNest.png";
 import { NavLink } from "react-router-dom";
 
+// Displays the infromation about the project, from the Projects.jsx file, used to display the large project section on large screens.
 const LargeProject = ({
   projectName,
   projectParagraph,
@@ -14,12 +15,22 @@ const LargeProject = ({
 }) => {
   return (
     <article>
-      <div className="bg-red bg-opacity-50 flex flex-row gap-8 max-h-[460px] p-8 rounded-3xl justify-center">
-        <img src={mobileImage} className="max-h-[400px] rounded-lg" />
-        <img src={desktopImage} className="max-h-[400px] rounded-lg" />
+      {/* Mobile First Approach for image scale, where the max height changes based on the screen size */}
+      <div className="bg-red bg-opacity-50 flex flex-row gap-2 box-border p-2 max-h-[200px] md:max-h-[400px] rounded-lg justify-center">
+        <div className="w-full max-w-[706px] max-h-[200px] basis-8/12 md:max-h-[460px]">
+          <img
+            src={desktopImage}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+
+        <div className="max-h-[200px] max-w-[120px] md:max-h-[400px] md:max-w-[184px]">
+          <img src={mobileImage} className="w-full h-full rounded-lg" />
+        </div>
       </div>
 
-      <article className="flex flex-row justify-between font-IBMSans basis-1/5 gap-8 font-normal">
+      {/* Articles containing all of the text information about the project, such as title, tech stack, e.g. */}
+      <article className="flex flex-col md:flex-row justify-between font-IBMSans basis-1/5 gap-2 md:gap-8 font-normal">
         <header>
           <h1 className="text-red text-3xl">{projectName} </h1>
 

@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import "./index.css";
 import { HomePage } from "./pages/HomePage.jsx";
 import Projects from "./pages/Projects.jsx";
+import { ProjectShowcasePage } from "./pages/ProjectShowcasePage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />,
+      },
+      {
+        path: "/project/:projectID",
+        element: <ProjectShowcasePage />,
       },
     ],
   },

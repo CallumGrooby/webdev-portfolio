@@ -34,7 +34,10 @@ export const HomePage = () => {
         <IconedList icons={contactIcons} hasMaxWidth={true} />
 
         <Section title={"About Me"}>
-          <h1 className="font-Inter text-grey uppercase font-bold text-6xl">
+          <h1
+            className={`font-Inter md:text-text-grey uppercase font-bold md:text-6xl sm:text-3xl text-2xl
+              w-fit  bg-red md:bg-opacity-0  px-12 py-4 rounded-tr-3xl text-white`}
+          >
             About Me
           </h1>
 
@@ -59,7 +62,10 @@ export const HomePage = () => {
 
         <Section title={"Projects"} isOnLeft={false}>
           <section className="flex flex-col gap-8">
-            <header className="font-Inter text-text-grey uppercase font-bold text-6xl bg-red lg:bg-opacity-0">
+            <header
+              className={`font-Inter md:text-text-grey uppercase font-bold md:text-6xl sm:text-3xl text-2xl
+              w-fit  bg-red md:bg-opacity-0  px-12 py-4 rounded-tr-3xl text-white`}
+            >
               PROJECTS
             </header>
 
