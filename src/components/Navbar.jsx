@@ -2,18 +2,21 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Links = [
-  { linkName: "Home", href: "home" },
+  { linkName: "Home", href: "/" },
   { linkName: "Projects", href: "projects" },
-  { linkName: "Contact Us", href: "contact" },
 ];
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="flex flex-row gap-2">
+      <nav className="container-sm mx-auto flex flex-row gap-4 w-full h-[140px] justify-end items-center">
         {Links.map((link, index) => {
           return (
-            <NavLink key={index} to={link.href}>
+            <NavLink
+              className={"text-lg hover:text-red"}
+              key={index}
+              to={link.href}
+            >
               {link.linkName}
             </NavLink>
           );

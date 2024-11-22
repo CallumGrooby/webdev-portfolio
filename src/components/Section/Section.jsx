@@ -3,12 +3,12 @@ import React from "react";
 const Section = ({ title, isOnLeft = true, children }) => {
   return (
     <section
-      className={`container-lg mx-auto flex ${
+      className={`container-lg mx-auto flex w-full ${
         isOnLeft ? "flex-row" : "flex-row-reverse"
       }  `}
     >
       <header
-        className={`relative bg-gray-200 max-w-52 min-h-[800px] w-full bg-red
+        className={`relative bg-gray-200 max-w-52 min-h-[680px] w-full bg-red
           hidden md:flex xl:max-w-[360px]
           ${isOnLeft ? "rounded-r-3xl" : "rounded-l-3xl"}`}
       >
@@ -20,7 +20,7 @@ const Section = ({ title, isOnLeft = true, children }) => {
         </h1>
       </header>
 
-      <article className="container-sm m-0 flex flex-col gap-4 w-full">
+      <article className="container-sm m-0 flex flex-col gap-4 w-full justify-center">
         {children}
       </article>
     </section>

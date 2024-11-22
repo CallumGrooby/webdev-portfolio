@@ -1,21 +1,12 @@
 import React from "react";
 import IconedList from "../components/IconedRow/IconedRow";
-import LargeProject from "../components/ProjectSection/LargeProject";
-
-import mobileTestImage from "../assets/MobileSiteImages/testmobile.png";
-import desktopTestImage from "../assets/MobileSiteImages/CubeNest.png";
-import { SmallProject } from "../components/ProjectSection/SmallProject";
+import LargeProject from "../components/ProjectSection/ProjectSection";
 
 import ProjectData from "../data/ProjectData";
+import { contactIcons } from "../data/Icons";
 
 const Projects = () => {
-  const contactIcons = [
-    { icon: "", name: "linkedin" },
-    { icon: "", name: "github" },
-    { icon: "", name: "email" },
-  ];
-  const featuredProjects = ProjectData.filter((x) => x.isFeatured == true);
-  const nonFeaturedProjects = ProjectData.filter((x) => x.isFeatured != true);
+  const projectsInformation = ProjectData;
 
   return (
     <section>
@@ -36,7 +27,7 @@ const Projects = () => {
       <IconedList icons={contactIcons} hasMaxWidth={true} />
 
       <section className="container-sm mx-auto flex flex-col gap-8 mt-16">
-        {featuredProjects.map((projectData, index) => (
+        {projectsInformation.map((projectData, index) => (
           <LargeProject
             key={index}
             projectName={projectData.projectName}
@@ -48,21 +39,6 @@ const Projects = () => {
           />
         ))}
       </section>
-
-      <section className="container-sm mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 md:mt-16">
-        {nonFeaturedProjects.map((projectData, index) => (
-          <SmallProject
-            key={index}
-            projectName={projectData.projectName}
-            projectParagraph={projectData.projectShortParagraph}
-            techstack={projectData.technologies}
-            mobileImage={projectData.mobileSiteImage}
-            desktopImage={projectData.desktopSiteImage}
-            href={`/project/${projectData.id}`}
-          />
-        ))}
-      </section>
-
       <h1 className="~md/lg:~text-base/4xl">Quick increase</h1>
     </section>
   );

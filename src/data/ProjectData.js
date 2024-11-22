@@ -1,84 +1,143 @@
 import placeholder from "../assets/placeholder.jpg";
-import DriveEaseImage from "../assets/WebsiteImages/DriveEase.png";
-import EndeavourImage from "../assets/WebsiteImages/Endeavour.png";
-import FreshLincsImage from "../assets/WebsiteImages/FreshLincs.png";
-import YesFoodImage from "../assets/WebsiteImages/YesFood.png";
 
-import CubeNestImage from "../assets/WebsiteImages/CubeNest.png";
-import ScollerImage from "../assets/WebsiteImages/Scroller.png";
+import CubeNestDesktop from "../assets/WebsiteImages/CubeNest/CubeNestDesktop.png";
+import CubeNestMobile from "../assets/WebsiteImages/CubeNest/CubeNestMobile.png";
 
-import mobileTestImage from "../assets/MobileSiteImages/testmobile.png";
-import desktopTestImage from "../assets/MobileSiteImages/CubeNest.png";
+import EndeavorDesktop from "../assets/WebsiteImages/Endeavour/EndeavourDesktop.png";
+import EndeavorMobile from "../assets/WebsiteImages/Endeavour/EndeavourMobile.png";
+
+import FreshLincsDesktop from "../assets/WebsiteImages/FreshLincs/FreshLincsDesktop.png";
+import FreshLincsMobile from "../assets/WebsiteImages/FreshLincs/FreshLincsMobile.png";
+
+import ScrollerDesktop from "../assets/WebsiteImages/Scroller/ScrollerDesktop.png";
+import ScrollerMobile from "../assets/WebsiteImages/Scroller/ScrollerMobile.png";
+
+import DriveEaseDesktop from "../assets/WebsiteImages/DriveEase/DriveEaseDesktop.png";
+import DriveEaseMobile from "../assets/WebsiteImages/DriveEase/DriveEaseMobile.png";
+
+import YesFoodDesktop from "../assets/WebsiteImages/YesFood/YesFoodDesktop.png";
+import YesFoodMobile from "../assets/WebsiteImages/YesFood/YesFoodMobile.png";
+
+import SpotifyDesktop from "../assets/WebsiteImages/SpotifyAPI/SpotifyDesktop.png";
+import SpotifyMobile from "../assets/WebsiteImages/SpotifyAPI/SpotifyMobile.png";
 
 export default [
   {
-    projectName: "Reddit Scroller",
-    technologies: ["React", "Tailwind CSS"],
+    projectName: "Spotify Stats",
+    technologies: ["React", "Tailwind CSS", "Spotify API", "NodeJS", "Express"],
     projectShortParagraph:
-      "An interactive app that allows users to scroll through images from any subreddit using Reddit’s .json endpoints.",
+      "A responsive web application for that allows the user to view there top artists and songs on spotify",
     projectLongParagraph:
-      "The Reddit Scroller is a dynamic web application developed using React and styled with Tailwind CSS. It enables users to input their preferred subreddit and effortlessly browse through images fetched directly from Reddit’s .json endpoints. This project demonstrates my ability to integrate external APIs while building a responsive and interactive user interface. With a focus on user experience, the app offers seamless scrolling and efficient image loading, creating a streamlined way to explore visual content from various Reddit communities.",
-    mobileSiteImage: mobileTestImage,
-    desktopSiteImage: desktopTestImage,
+      "Spotify Stats was built to provide a user-friendly way for browsing viewing the users spotify statitistics. This project helped me practice working with axios, making API calls and working with API data. It also provided a small insight into working with a nodeJS backend as it uses express to get the users access code, with the correct CORS and in a secure way. ",
+    mobileSiteImage: SpotifyMobile,
+    desktopSiteImage: SpotifyDesktop,
     codeUrl: "https://github.com/CallumGrooby/redditViewer",
-    demoUrl: "https://scoller.callumgrooby.co.uk/",
+    demoUrl: "https://spotifyapi.callumgrooby.co.uk/",
     isFeatured: true,
     id: 1,
   },
   {
-    projectName: "Endeavor",
-    technologies: ["React", "Tailwind CSS"],
+    projectName: "Reddit Scroller",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Reddit Endpoints",
+    ],
     projectShortParagraph:
-      "A redesigned website for a local plumbing and heating business, enhancing user experience and service accessibility.",
+      "A responsive web application for browsing all images on searchable subreddits.",
     projectLongParagraph:
-      "Endeavor is a complete redesign and redevelopment project for a local plumbing and heating business. Using React and Tailwind CSS, I created a modern, responsive website that improves functionality and user experience. The new site features clear service details, intuitive navigation, and prominent contact information, tailored to both residential and commercial clients. This project required careful attention to the client’s specific design and functional requirements, ensuring the site effectively communicates their services and drives customer engagement.",
-    mobileSiteImage: mobileTestImage,
-    desktopSiteImage: desktopTestImage,
-    codeUrl: "https://github.com/CallumGrooby/plumbingandheating",
-    demoUrl: "https://endeavour.callumgrooby.co.uk",
+      "Reddit Scroller was built to provide a user-friendly way for browsing media from reddit. This project helped me practice working with json data, creating responsive designs and UI/UX principles.",
+    mobileSiteImage: ScrollerMobile,
+    desktopSiteImage: ScrollerDesktop,
+    codeUrl: "https://github.com/CallumGrooby/redditViewer",
+    demoUrl: "https://scoller.callumgrooby.co.uk/",
     isFeatured: true,
     id: 2,
   },
   {
-    projectName: "Fresh Lincs",
-    technologies: ["React", "Tailwind CSS"],
-    projectShortParagraph:
-      "A robust website showcasing the transport and logistics services of FreshLinc, specializing in temperature-controlled supply chains.",
+    projectName: "Endeavor",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+    projectShortParagraph: "A redesign of a local plumbing businesses website.",
     projectLongParagraph:
-      "Fresh Lincs is a website developed for a transport and logistics company that specializes in temperature-controlled supply chains across the UK and Europe. Built using React and styled with Tailwind CSS, the site highlights the company’s expertise, including their modern fleet, warehousing capabilities, and international logistics services. With a focus on presenting their facilities and services clearly, the website is designed to provide potential clients with the information they need in a visually engaging and easy-to-navigate format, while demonstrating my skills in building corporate sites.",
-    mobileSiteImage: mobileTestImage,
-    desktopSiteImage: desktopTestImage,
-    codeUrl: "https://github.com/CallumGrooby/lorry-site",
-    demoUrl: "https://callumgrooby.github.io/lorry-site/",
-    isFeatured: false,
+      "This project was created to create modern website for a local business, this project focused on practicing my design skills and creating a responsive website, as well as implementing better SEO practices.",
+    mobileSiteImage: EndeavorMobile,
+    desktopSiteImage: EndeavorDesktop,
+    codeUrl: "https://github.com/CallumGrooby/plumbingandheating",
+    demoUrl: "https://endeavour.callumgrooby.co.uk",
+    isFeatured: true,
     id: 3,
   },
   {
-    projectName: "Yes Food",
-    technologies: ["React", "Tailwind CSS", "WordPress"],
+    projectName: "Fresh Lincs",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Google Maps API"],
     projectShortParagraph:
-      "A fast food website built with a headless WordPress CMS, showcasing restaurant menus and facilitating food exploration.",
+      "A redesign of a local transport businesses website.",
     projectLongParagraph:
-      "Yes Food is an innovative fast food website powered by WordPress as a headless CMS, developed using React and styled with Tailwind CSS. The site aggregates menus from multiple restaurants, offering users a simple, user-friendly interface to browse dishes from different establishments. Although the ordering functionality is not fully implemented, the project demonstrates my ability to integrate headless CMS platforms with modern front-end frameworks, creating a flexible and scalable solution for businesses in the food industry.",
-    mobileSiteImage: mobileTestImage,
-    desktopSiteImage: desktopTestImage,
-    codeUrl: "https://github.com/CallumGrooby/yes-food",
-    demoUrl: "https://yesfood.callumgrooby.co.uk",
+      "This project was created to create modern website for a local business, this project focused on practicing my design skills and creating a responsive website, as well as learning React.",
+    mobileSiteImage: FreshLincsMobile,
+    desktopSiteImage: FreshLincsDesktop,
+    codeUrl: "https://github.com/CallumGrooby/lorry-site",
+    demoUrl: "https://callumgrooby.github.io/lorry-site/",
     isFeatured: false,
     id: 4,
   },
   {
-    projectName: "Drive Ease",
-    technologies: ["React", "Tailwind CSS"],
+    projectName: "Yes Food",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "WordPress",
+    ],
     projectShortParagraph:
-      "A car rental website showcasing available vehicles with booking information and pricing details.",
+      "A fast-food website built with a headless WordPress CMS, showcasing restaurant menus and reviews.",
     projectLongParagraph:
-      "Drive Ease is a car rental website designed to provide users with an easy way to browse and book rental cars. Developed using React and styled with Tailwind CSS, the site includes detailed descriptions and pricing for each vehicle, ensuring a seamless browsing experience. With responsive design and intuitive navigation, the platform caters to users looking for short-term or long-term rentals, making it simple to find and book cars for various needs. This project emphasizes my skills in building responsive, user-centric websites that serve specific business functions.",
-    mobileSiteImage: mobileTestImage,
-    desktopSiteImage: desktopTestImage,
+      "Yes Food is an fast food website powered by WordPress as a headless CMS the site shows menus from multiple restaurants, offering users a simple, user-friendly interface to browse dishes from different establishments. This project demonstrates my ability to integrate headless CMS platforms with modern front-end frameworks, creating a flexible and scalable solution.",
+    mobileSiteImage: YesFoodMobile,
+    desktopSiteImage: YesFoodDesktop,
+    codeUrl: "https://github.com/CallumGrooby/yes-food",
+    demoUrl: "https://yesfood.callumgrooby.co.uk",
+    isFeatured: false,
+    id: 5,
+  },
+  {
+    projectName: "Drive Ease",
+    technologies: ["HTML", "CSS", "JavaScript", "Google Maps API", "React"],
+    projectShortParagraph:
+      "A car rental site, which allows the user to view different cars and select multiple location to pick it up and drop it off.",
+    projectLongParagraph:
+      "This project focused on practicing my design skills and creating a responsive website, as well as learning React.",
+    mobileSiteImage: DriveEaseMobile,
+    desktopSiteImage: DriveEaseDesktop,
     codeUrl: "https://github.com/CallumGrooby/car-rental-website",
     demoUrl: "https://callumgrooby.github.io/car-rental-website/",
     isFeatured: false,
-    id: 5,
+    id: 6,
+  },
+  {
+    projectName: "Cube Nest",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Google Maps API",
+      "React",
+      "Tailwind CSS",
+    ],
+    projectShortParagraph:
+      "A responsive web application that showcases modular living spaces. ",
+    projectLongParagraph:
+      "Cube Nest was built to provide a way of showcasing module living spaces. This project helped me practice working in React, designing websites in Figma, and creating responsive designs and UI/UX principles.",
+    mobileSiteImage: CubeNestMobile,
+    desktopSiteImage: CubeNestDesktop,
+    codeUrl: "https://github.com/CallumGrooby/cube-nest",
+    demoUrl: "https://cubenest.callumgrooby.co.uk/",
+    isFeatured: true,
+    id: 7,
   },
 ];
