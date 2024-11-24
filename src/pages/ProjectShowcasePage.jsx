@@ -104,7 +104,7 @@ export const ProjectShowcasePage = () => {
         </header>
 
         <p className="text-grey font-light text-2xl">
-          {selectedProject.projectLongParagraph};
+          {selectedProject.projectLongParagraph}
         </p>
         <div className="p-2 justify-center flex flex-col lg:flex-row gap-2 items-center h-fit">
           <div className="overflow-hidden h-[550px] w-full lg:w-auto hidden lg:inline">

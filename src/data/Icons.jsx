@@ -28,8 +28,8 @@ export const contactIcons = [
         </g>
       </svg>
     ),
-    name: "linkedin",
-    onClick: "https://www.linkedin.com/in/callum-grooby/",
+    name: "github",
+    onClick: "https://github.com/CallumGrooby",
   },
   {
     iconSVG: (
@@ -39,8 +39,9 @@ export const contactIcons = [
         </g>
       </svg>
     ),
-    name: "github",
-    onClick: "https://github.com/CallumGrooby",
+
+    name: "linkedin",
+    onClick: "https://www.linkedin.com/in/callum-grooby/",
   },
   {
     iconSVG: (
@@ -65,7 +66,7 @@ export const contactIcons = [
       </svg>
     ),
     name: "email",
-    onClick: "mailto: name@email.com",
+    onClick: "mailto: callum.grooby@yahoo.com",
   },
 ];
 
